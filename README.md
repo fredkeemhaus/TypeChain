@@ -73,3 +73,27 @@ printCoord({ x: 100, y: 100 });
 
 타입 별칭과 인터페이스의 차이점
 타입 별칭과 인터페이스는 매우 유사하며, 대부분의 경우 둘 중 하나를 자유롭게 선택하여 사용할 수 있습니다. `interface`가 가지는 대부분의 기능은 `type`에서도 동일하게 사용 가능합니다. 이 둘의 가장 핵심적인 차이는, 타입은 새 프로퍼티를 추가하도록 개방될 수 없는 반면, 인터페이스의 경우 항상 확장될 수 있다는 점입니다.
+
+---
+
+# tsconfig.json
+
+## Include - `include`
+Specifies an array of filenames or patterns to include in the program. These filenames are resolved relative to the directory containing the tsconfig.json file.
+
+```json
+{
+  "include": ["src/**/*", "tests/**/*"]
+}
+```
+
+## Lib - `lib`
+
+TypeScript includes a default set of type definitions for built-in JS APIs (like `Math`), as well as type definitions for things found in browser environments (like `document`). TypeScript also includes APIs for newer JS features matching the target you specify; for example the definition for `Map` is available if target is ES6 or newer.
+
+
+You may want to change these for a few reasons:
+
+- Your program doesn’t run in a browser, so you don’t want the `"dom"` type definitions
+- Your runtime platform provides certain JavaScript API objects (maybe through polyfills), but doesn’t yet support the full syntax of a given ECMAScript version
+- You have polyfills or native implementations for some, but not all, of a higher level ECMAScript version
