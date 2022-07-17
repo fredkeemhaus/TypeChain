@@ -97,3 +97,22 @@ You may want to change these for a few reasons:
 - Your program doesn’t run in a browser, so you don’t want the `"dom"` type definitions
 - Your runtime platform provides certain JavaScript API objects (maybe through polyfills), but doesn’t yet support the full syntax of a given ECMAScript version
 - You have polyfills or native implementations for some, but not all, of a higher level ECMAScript version
+
+---
+
+
+# JSDoc
+
+## @ts-check
+
+이전 코드 샘플의 마지막 줄은 TypeScript에서 오류를 발생시키지만 JS 프로젝트에서는 기본적으로 발생하지 않습니다. JavaScript 파일에서 오류를 활성화하려면 파일 // `@ts-check`의 첫 번째 줄에 다음을 추가 `.js`하여 TypeScript가 오류를 발생시키도록 합니다.
+
+```typescript
+// @ts-check
+/** @type {number} */
+var x;
+ 
+x = 0; // OK
+x = false; // Not OK
+Type 'boolean' is not assignable to type 'number'.
+```
